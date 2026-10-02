@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Log in | AVKAS &amp; Co.</title>
+<link rel="icon" href="/images/favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/login/style.css">
+</head>
+<body>
+<main class="auth">
+  <img src="/images/logo-96.png" alt="" width="56" height="56">
+
+  <section data-view="email">
+    <h1>Log in</h1>
+    <p class="muted">Enter your email to continue.</p>
+    <form id="f-email" novalidate>
+      <label>Email<input name="email" type="email" autocomplete="username" inputmode="email" required></label>
+      <p class="err" role="alert"></p>
+      <button class="btn" type="submit">Continue</button>
+    </form>
+  </section>
+
+  <section data-view="password" hidden>
+    <h1>Welcome back<span id="who"></span></h1>
+    <p class="muted" id="who-email"></p>
+    <form id="f-login" novalidate>
+      <label>Password<span class="pw"><input name="password" type="password" autocomplete="current-password" required><button class="eye" type="button" aria-label="Show password" aria-pressed="false"><svg class="i-eye" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><svg class="i-off" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l18 18M10.6 5.1A9.7 9.7 0 0112 5c6.4 0 10 7 10 7a17 17 0 01-3.2 4.1M6.6 6.6C3.7 8.4 2 12 2 12s3.6 7 10 7c1.7 0 3.2-.4 4.5-1M9.9 9.9a3 3 0 004.2 4.2"/></svg></button></span></label>
+      <label class="check"><input type="checkbox" name="remember" checked> Keep me signed in</label>
+      <p class="err" role="alert"></p>
+      <button class="btn" type="submit">Log in</button>
+    </form>
+    <p><button class="link-btn" type="button" data-go="send" data-mode="forgot">Forgot password?</button> &nbsp;&middot;&nbsp; <button class="link-btn" type="button" data-go="email">Use a different email</button></p>
+  </section>
+
+  <section data-view="send" hidden>
+    <h1 id="send-title">Set up your account</h1>
+    <p class="muted" id="send-text"></p>
+    <form id="f-send" novalidate>
+      <p class="err" role="alert"></p>
+      <button class="btn" type="submit">Send OTP to email</button>
+    </form>
+    <p><button class="link-btn" type="button" data-go="email">Use a different email</button></p>
+  </section>
+
+  <section data-view="otp" hidden>
+    <h1>Enter the code</h1>
+    <p class="muted" id="otp-note"></p>
+    <form id="f-otp" novalidate>
+      <label>6-digit code<input name="otp" inputmode="numeric" maxlength="6" pattern="[0-9]*" autocomplete="one-time-code" required></label>
+      <p class="err" role="alert"></p>
+      <button class="btn" type="submit">Verify OTP</button>
+      <button class="btn plain" id="resend" type="button" disabled>Resend code</button>
+    </form>
+  </section>
+
+  <section data-view="new" hidden>
+    <h1>Create your password</h1>
+    <form id="f-new" novalidate>
+      <label>Password<span class="pw"><input name="password" type="password" autocomplete="new-password" required><button class="eye" type="button" aria-label="Show password" aria-pressed="false"><svg class="i-eye" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><svg class="i-off" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l18 18M10.6 5.1A9.7 9.7 0 0112 5c6.4 0 10 7 10 7a17 17 0 01-3.2 4.1M6.6 6.6C3.7 8.4 2 12 2 12s3.6 7 10 7c1.7 0 3.2-.4 4.5-1M9.9 9.9a3 3 0 004.2 4.2"/></svg></button></span></label>
+      <label>Enter password again<span class="pw"><input name="confirm" type="password" autocomplete="new-password" required><button class="eye" type="button" aria-label="Show password" aria-pressed="false"><svg class="i-eye" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><svg class="i-off" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l18 18M10.6 5.1A9.7 9.7 0 0112 5c6.4 0 10 7 10 7a17 17 0 01-3.2 4.1M6.6 6.6C3.7 8.4 2 12 2 12s3.6 7 10 7c1.7 0 3.2-.4 4.5-1M9.9 9.9a3 3 0 004.2 4.2"/></svg></button></span></label>
+      <p class="muted small">Use at least 8 characters.</p>
+      <p class="err" role="alert"></p>
+      <button class="btn" type="submit">Continue</button>
+    </form>
+  </section>
+
+  <p><a href="/">Back to website</a></p>
+</main>
+<script type="module" src="/login/auth.js"></script>
+</body>
+</html>
